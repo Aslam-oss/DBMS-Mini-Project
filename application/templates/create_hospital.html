@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %} Account Status {% endblock %}
+
+{% block content %}
+        <style>
+            /* input {
+                position: absolute;
+                left: 150px;
+            }
+
+            select {
+                position: absolute;
+                left: 150px;
+            } */
+        </style>
+        <div class="form1">
+            <h1 style="color:#032583">Register Hospital</h1>
+
+
+
+            <form action="" method="POST">
+               <label for="hid"><b>Hospital ID</b></label>
+			<input type="text" placeholder="Enter Hospital ID" name="hid" required><br>
+			<label for="hname"><b>Hospital Name<b></label>
+			<input type="text" placeholder="Enter Hospital Name" name="hname" required><br>
+			<label for="hlocation"><b>Hospital Location<b></label>
+			<input type="text" placeholder="Enter Hospital Location" name="hlocation" required><br>
+            <pre>(*)Fields are compulsary</pre>
+                <button class="button" type="submit">Submit</button> &nbsp;
+                <button class="rbutton" type="reset">Reset</button>
+
+            </form>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <h3 style="color: red;  font-weight: bold; font-size: larger;"> {{ msg }} </h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+
+        </div>
+    {% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %} Department Status {% endblock %}
+
+{% block content %}
+
+<div class="astatus">
+
+    <h1 style="color: rgb(228, 1, 1);" > Departments </h1><br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p style="font-weight: bolder; color: red; font-size: larger;"> {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith%}
+
+    <table >
+        <tr>
+              <th>Department ID</th>
+            <th>Department NAME</th>
+            <th>Department HEAD SSN</th>
+		     	<th>HOSPITAL ID</th>
+
+
+            <th></th>
+
+        </tr>
+        {% for update in updatep %}
+        <tr>
+
+            <td> {{ update.department_id }} </td>
+            <td> {{ update.department_name }} </td>
+            <td> {{ update.department_head_ssn }} </td>
+            <td> {{ update.d_hospital_id }} </td>
+
+            <td> <button type="button" class="ubutton" onclick="window.location='editdepartmentdetail/{{ update.department_id }}'"> Edit Department </button> </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+
+    <form action="{{ url_for('update_department') }}">
+    <button type="submit" class="ibutton" value="Refresh the list">Refresh Status</button>
+    </form>
+</div>
+
+{% endblock %}

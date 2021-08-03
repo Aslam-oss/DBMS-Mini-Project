@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %} Search Staff {% endblock %}
+
+{% block css %}
+<style>
+   .text{
+        width: 250px;
+        padding: 10px 5px;
+        border: none;
+        border: solid 1px rgb(37, 62, 99) !important;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+
+<div style="margin-top: 150px; text-align: center;">
+    <h1 style="color: red;"> Search Staff </h1>
+
+    <div style="margin-left: -10px;">
+    <form action="" method="POST">
+        <label for="id" style="font-weight: bold; font-size: large; color: rgb(2, 2, 146);">Staff ID</label>
+        &nbsp;&nbsp;
+        <input type="text" class="text"  name="id" ><br><br>
+        <button class="button" type="submit">Search</button>
+    </form>
+    </div>
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+    <div > <br>
+        <p style="color: rgb(248, 11, 11);text-align: center;"> <strong>{{ msg }}</strong> </p>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endwith%}
+
+<br>
+<div  >
+    {% if staff %}
+     <table >
+        <tr>
+            <th>Staff ID</th>
+            <th>NAME</th>
+			<th>DESIGNATION</th>
+            <th>AGE</th>
+            <th>GENDER</th>
+            <th>STAFF DEPARTMENT NNUMBER </th>
+            <th>STAFF EQUIPMEMT NUMBER</th>
+
+        </tr>
+        {% for update in staff %}
+        <tr>
+
+            <td> {{ update.ssn_id }} </td>
+            <td> {{ update.s_name }} </td>
+            <td> {{ update.designation }} </td>
+            <td> {{ update.age }} </td>
+            <td> {{ update.sex }}</td>
+            <td> {{ update.s_dno }} </td>
+            <td> {{ update.s_eqp_id }} </td>
+         
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+    {% else %}
+
+                <h3></h3>
+
+    {% endif %}
+
+{% endblock %}

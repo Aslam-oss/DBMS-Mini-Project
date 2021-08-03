@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %} Department Status {% endblock %}
+
+{% block content %}
+
+<div class="astatus">
+
+    <h1 style="color: rgb(228, 1, 1);" >Delete Department </h1><br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p> {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith%}
+
+    <table >
+        <tr>
+              <th>Department ID</th>
+            <th>Department NAME</th>
+			<th>Department Head SSn</th>
+      <th> Hospital ID</th>
+
+            <th></th>
+
+
+
+        </tr>
+         {% for update in updatep %}
+        <tr>
+
+            <td> {{ update.department_id }} </td>
+            <td> {{ update.department_name }} </td>
+            <td> {{ update.department_head_ssn }} </td>
+            <td> {{ update.d_hospital_id}}</td>
+
+            <td> <button type="button" class="ubutton" onclick="window.location='deletedepartmentdetail/{{ update.department_id }}'"> delete Department </button> </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+
+    <form action="{{ url_for('deletedep') }}">
+    <button type="submit" class="ibutton" value="Refresh the list">Refresh Status</button>
+    </form>
+</div>
+
+{% endblock %}

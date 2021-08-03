@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %} Hospital Status {% endblock %}
+
+{% block content %}
+
+<div class="astatus">
+
+    <h1 style="color: rgb(228, 1, 1);" > Hospital Equipments </h1><br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p style="font-weight: bolder; color: red; font-size: larger;"> {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith%}
+
+    <table >
+        <tr>
+              <th>Hospital ID</th>
+            <th>Hospital NAME</th>
+			<th>Equipment ID</th>
+			<th>Equipment Name</th>
+			<th>Quantity</th>
+           
+            
+            
+        </tr>
+        {% for update in updatep  %}
+        <tr>
+            
+            <td> {{ update.hospital_id }} </td>
+            <td> {{ update.hospital_name }} </td>
+            <td> {{ update.equipment_id }} </td>
+			<td> {{ update.equipment_name}} </td>
+			<td> {{ update.quantity}} </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+
+    <form action="{{ url_for('hospital_equipments') }}">
+    <button type="submit" class="ibutton" value="Refresh the list">Refresh Status</button>
+    </form>
+</div>
+
+{% endblock %}

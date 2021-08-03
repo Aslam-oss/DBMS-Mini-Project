@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %} Account Status {% endblock %}
+
+{% block content %}
+        <style>
+            /* input {
+                position: absolute;
+                left: 150px;
+            }
+
+            select {
+                position: absolute;
+                left: 150px;
+            } */
+        </style>
+        <div class="form1">
+            <h1 style="color:#032583">Register Staff</h1>
+
+
+
+            <form action="" method="POST">
+                <label for="ssn"><b>Staff SSN</b></label>
+				<input type="text" placeholder="Enter Staff SSN" name="ssn" required><br>
+				<label for="sname"><b>Staff Name<b></label>
+				<input type="text" placeholder="Enter Staff Name" name="sname" required><br>
+				<label for="sdesignation"><b>Staff Designation<b></label>
+				<input type="text" placeholder="Enter Staff Designation" name="sdesignation" required><br>
+				<label for="age"><b>Staff Age</b></label>
+				<input type="text" placeholder="Enter Age " name="Age" required><br>
+				<label for="gender"><b>Gender</b></label>
+				<input type="text" placeholder="Gender " name="gender" required><br>
+				<label for="sdno"><b>Staff Department</b></label>
+				<input type="text" placeholder="Enter Staff Department Number" name="sdno" ><br>
+				<label for="seid"><b>Staff having Equipment Number</b></label>
+				<input type="text" placeholder="Enter Equipment ID" name="seid" ><br>
+				<label for="shospid"><b>Staff of Hospital</b></label>
+				<input type="text" placeholder="Enter Equipment ID" name="shospid" ><br>
+				<pre>(*)Fields are compulsary</pre>
+                <button class="button" type="submit">Submit</button> &nbsp;
+                <button class="rbutton" type="reset">Reset</button>
+
+
+            </form>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <h3 style="color: red;  font-weight: bold; font-size: larger;"> {{ msg }} </h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+
+        </div>
+    {% endblock %}

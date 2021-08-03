@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %} Search Patient {% endblock %}
+
+{% block css %}
+<style>
+   .text{
+        width: 250px;
+        padding: 10px 5px;
+        border: none;
+        border: solid 1px rgb(37, 62, 99) !important;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+
+<div style="margin-top: 150px; text-align: center;">
+    <h1 style="color: red;"> Search Patient </h1>
+
+    <div style="margin-left: -10px;">
+    <form action="" method="POST">
+        <label for="id" style="font-weight: bold; font-size: large; color: rgb(2, 2, 146);">Patient ID</label>
+        &nbsp;&nbsp;
+        <input type="text" class="text"  name="id" ><br><br>
+        <button class="button" type="submit">Search</button>
+    </form>
+    </div>
+</div>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+        <div > <br>
+            <p style="color: rgb(248, 11, 11);text-align: center;"> <strong>{{ msg }}</strong> </p>
+         </div>
+        {% endfor %}
+    {% endif %}
+{% endwith%}
+
+<br>
+<div  >
+    {% if patients %}
+    <table border="1">
+        <tr>
+            <th>PATIENT ID</th>
+            <th>NAME</th>
+			<th>SEX</th>
+            <th>AGE</th>
+            <th>RISK</th>
+            <th>PATIENT EQUIPMENT </th>
+            <th>PATIENT ADMITTED DEPARTMENT</th>
+			<th>PATIENT ADMITTED IN HOSPITAL</th>
+
+
+        </tr>
+        {% for row in patients %}
+        <tr>
+
+            <td> {{ row.p_id }} </td>
+            <td> {{ row.pname }} </td>
+            <td> {{ row.sex }} </td>
+            <td> {{ row.age }} </td>
+            <td> {{ row.risk }}</td>
+            <td> {{ row.p_eqp_id }} </td>
+            <td> {{ row.p_dno }} </td>
+			<td> {{ row.p_hospital_id}}
+            
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</div>
+
+    {% else %}
+
+                <h3></h3>
+
+    {% endif %}
+
+{% endblock %}

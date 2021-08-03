@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %} Equipment Status {% endblock %}
+
+{% block content %}
+
+<div class="astatus">
+
+    <h1 style="color: rgb(228, 1, 1);" >Delete equipment </h1><br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p> {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith%}
+
+    <table >
+        <tr>
+              <th>Equipment ID</th>
+            <th>Equipment NAME</th>
+			<th>Quantity</th>
+      <th> Hospital ID</th>
+
+
+
+
+        </tr>
+         {% for update in updatep %}
+        <tr>
+
+            <td> {{ update.equipment_id }} </td>
+            <td> {{ update.equipment_name }} </td>
+            <td> {{ update.quantity }} </td>
+            <td> {{ update.e_hospital_id}}</td>
+
+            <td> <button type="button" class="ubutton" onclick="window.location='deleteequipmentdetail/{{ update.equipment_id }}'"> delete Equipment </button> </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+
+    <form action="{{ url_for('deleteeqp') }}">
+    <button type="submit" class="ibutton" value="Refresh the list">Refresh Status</button>
+    </form>
+</div>
+
+{% endblock %}

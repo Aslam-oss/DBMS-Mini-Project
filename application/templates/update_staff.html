@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %} staff Status {% endblock %}
+
+{% block content %}
+
+<div class="astatus">
+
+    <h1 style="color: rgb(228, 1, 1);" >UPDATE STAFF </h1><br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p> {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith%}
+
+    <table >
+        <tr>
+              <th>Staff ID</th>
+            <th>NAME</th>
+			<th>DESIGNATION</th>
+            <th>AGE</th>
+            <th>GENDER</th>
+            <th>STAFF DEPARTMENT NNUMBER </th>
+            <th>PATIENT EQUIPMEMT NUMBER</th>
+
+            <th></th>
+
+        </tr>
+        {% for update in updatep %}
+        <tr>
+
+            <td> {{ update.ssn_id }} </td>
+            <td> {{ update.s_name }} </td>
+            <td> {{ update.designation }} </td>
+            <td> {{ update.age }} </td>
+            <td> {{ update.sex }}</td>
+            <td> {{ update.s_dno }} </td>
+            <td> {{ update.s_eqp_id }} </td>
+            <td> <button type="button" class="ubutton" onclick="window.location='editstaffdetail/{{ update.ssn_id }}'"> Update Staff </button> </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+
+    <form action="{{ url_for('update_staff') }}">
+    <button type="submit" class="ibutton" value="Refresh the list">Refresh Status</button>
+    </form>
+</div>
+
+{% endblock %}

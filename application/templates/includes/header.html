@@ -1,0 +1,96 @@
+<header>
+    <div class="heading">
+        <h1 id="logo" style="color: rgb(43, 255, 0); display:flex;flex-wrap: wrap; font-size: 40px;">
+            <div style="color: rgb(251, 255, 0);  font-size: 40px; display:flex;
+            flex-wrap: wrap;"></div>
+        </h1>
+    </div>
+    <div class="links">
+        <nav class="navbar" >
+
+            <div class="home"><a href="{{ url_for('home') }}">Home</a></div>
+			 <div class="dropdown">
+                <button class="dropbtn">Hospital Management
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('create_hospital') }}">Register Hospital</a>
+                  	<a href="{{ url_for('update_hospital') }}">Update Hospital</a>
+                    <a href="{{ url_for('deletehosp') }}">Delete Hospital</a>
+
+                </div>
+            </div>
+				<div>
+				 <div class="dropdown">
+                <button class="dropbtn">Department Management
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('create_department') }}">Register Department</a>
+                    <a href="{{ url_for('update_department') }}">Update Department</a>
+                    <a href="{{ url_for('deletedep') }}">Delete Departmen</a>
+
+                </div>
+            </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Patient Management
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('create_patient') }}">Register Patient</a>
+                    <a href="{{ url_for('update_patient') }}">Update Patient</a>
+                    <a href="{{ url_for('deletepat') }}">Delete Patient</a>
+                    <a href="{{ url_for('search_patient') }}">Search Patients</a>
+                </div>
+            </div>
+			<div class="dropdown">
+                <button class="dropbtn">Staff Management
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('create_staff') }}">Register Staff</a>
+                    <a href="{{ url_for('update_staff') }}">Update staff</a>
+                    <a href="{{ url_for('deletestaff') }}">Delete staff</a>
+                    <a href="{{ url_for('search_staff') }}">Search staff</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Equipment Management
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('create_equipments') }}">Add Equipment</a>
+                    <a href="{{ url_for('update_equipment') }}">Update Equipment</a>
+                    <a href="{{ url_for('deleteeqp') }}">Delete Equipment</a>
+					<a href="{{ url_for('hospital_equipments') }}">hospital Equipment  Details </a>
+					<a href="{{ url_for('patient_equipments') }}">Patient Equipment Details</a>
+					<a href="{{ url_for('staff_equipments') }}">Staff Equipment Details</a>
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Status Details
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('update_patient') }}">All Patients</a>
+			  <a href="{{ url_for('update_staff') }}">All Staff</a>
+                    <a href="{{ url_for('search_staff') }}">Search Staff</a>
+                    <a href="{{ url_for('search_patient') }}">Search Patients</a>
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="logout"><a href="{{ url_for('logout') }}">Logout</a></div>
+
+        </nav>
+    </div>
+</header>
